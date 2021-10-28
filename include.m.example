@@ -1,0 +1,16 @@
+inFld1 = '/home/user/Dataset/ModelNet10/V128A/';  % Directory containing manifold meshes
+ext1 = '*.off'; % file extension in inFld1
+inFld2 = '/home/user/Dataset/ModelNet10/V128A_AHSP/';  % Directory containing parameterization of manifold meshes
+ext2 = '*.off'; % file extension in inFld2
+flStr = ''; % string to filter files searched in inFld1 and inFld2
+dual = 1;   % set to list pair wise files for main_mesh2ico.m
+listFile = '/home/user/Dataset/ModelNet10/GITHUB-V128A-V128A_AHSP.txt';  % File to hold the pair-wise list
+
+subdiv = 5; % Subdivision level of the output Icosahedral Mapping Mesh
+outIcoFld = strcat('/home/user/Dataset/ModelNet10/GITHUB-V128A_AHSP_I', num2str(subdiv), '/');  % Output folder to save Icosahedral Mapping Mesh
+viewMesh = 1; % to visualize output ico mesh, should be used without parfor
+saveIcoMesh = 1; % to save output ico mesh 
+saveIcoMat = 1; % to save output ico as matlab mat file
+orientMap = 0; % to orient parameterized mesh to the input mesh; required for training GenIcoNet
+
+numcores = eval('feature(''numcores'')');
